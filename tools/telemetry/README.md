@@ -10,17 +10,27 @@ Read-only post-mortem tools. Does NOT touch the live system.
 
 ## Usage
 
+### One-shot (most common)
+
 ```bash
-# 1. Pull a fresh snapshot (B_balanced_3x by default)
+bash tools/telemetry/check.sh
+```
+
+Pulls a fresh snapshot and prints the report in one go.
+
+### Step-by-step
+
+```bash
+# Pull snapshot (B_balanced_3x by default)
 bash tools/telemetry/pull.sh
 
-# 2. Generate report from the latest snapshot
+# Report against latest snapshot
 python tools/telemetry/report.py --latest
 
 # Or against a specific snapshot
 python tools/telemetry/report.py tools/telemetry/data/20260414T064000Z
 
-# Write to file
+# Write to file instead of stdout
 python tools/telemetry/report.py --latest -o report.md
 ```
 
